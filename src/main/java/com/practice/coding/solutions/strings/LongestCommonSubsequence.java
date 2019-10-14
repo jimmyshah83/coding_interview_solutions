@@ -36,8 +36,8 @@ public class LongestCommonSubsequence {
 
     // Driver Program to test above function
     public static void main(String[] args) {
-	String X = "ABCDE";
-	String Y = "BCD";
+	String X = "ABAB";
+	String Y = "CBAB";
 
 	int m = X.length();
 	int n = Y.length();
