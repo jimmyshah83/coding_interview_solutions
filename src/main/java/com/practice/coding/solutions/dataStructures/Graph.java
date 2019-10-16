@@ -13,15 +13,30 @@ import java.util.Queue;
 @SuppressWarnings({ "unchecked", "unused" })
 class Graph {
 
+    private class Vertex {
+
+	private final int value;
+
+	public Vertex(int value) {
+	    this.value = value;
+	}
+
+	@Override
+	public String toString() {
+	    return "Node [value=" + value + "]";
+	}
+    }
+
     /**
      * A Graph's edge which would only require the destination as the source would
      * be the array index location
      */
     private class Edge {
-	private final int dest;
+
+	private final Vertex dest;
 	private final int weight;
 
-	public Edge(int dest, int weight) {
+	public Edge(Vertex dest, int weight) {
 	    super();
 	    this.dest = dest;
 	    this.weight = weight;
@@ -50,30 +65,29 @@ class Graph {
      * destination vertex and the edge's weight
      */
     void addEdge(int src, int dest, int weight) {
-	adjacencyLists[src].add(new Edge(dest, weight));
+	adjacencyLists[src].add(new Edge(new Vertex(dest), weight));
     }
 
     boolean isConnected(int src, int dest) {
 	for (Edge edge : adjacencyLists[src]) {
-	    if (edge.dest == dest)
+	    if (edge.dest.value == dest)
 		return Boolean.TRUE;
 	}
 	return Boolean.FALSE;
     }
 
     /**
-     * BFS implementation to traverse a graph on it adjacent list
-     * Output: 0,1,2,3,4,5
+     * BFS implementation to traverse a graph on it adjacent list Output:
+     * 0,1,2,3,4,5
+     * 
+     * Cracking the coding interview 4.1
+     * 
+     * Route Between Nodes: Given a directed graph, design an algorithm to find out
+     * whether there is a route between two nodes.
      */
     void breathFirstSearch(int s) {
-	// Mark all the vertices as not visited(By default set as false)
-	boolean visited[] = new boolean[numVertices];
-
-	// Create a queue for BFS
+	// Create a queue for BFS and add the element, to visit its children
 	Queue<Integer> queue = new ArrayDeque<Integer>();
-
-	// Mark the current node as visited and enqueue it
-	visited[s] = true;
 	queue.add(s);
 
 	while (queue.size() != 0) {
@@ -85,11 +99,8 @@ class Graph {
 	    // If a adjacent has not been visited, then mark it
 	    // visited and enqueue it
 	    for (Edge e : adjacencyLists[s]) {
-		int n = e.dest;
-		if (!visited[n]) {
-		    visited[n] = true;
-		    queue.add(n);
-		}
+		if (!queue.contains(e.dest.value))
+		    queue.add(e.dest.value);
 	    }
 	}
     }
