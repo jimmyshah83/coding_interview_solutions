@@ -7,8 +7,8 @@ package com.practice.coding.solutions.dataStructures;
 public class TreeNode {
 
     private final Object nodeValue;
-    TreeNode left;
-    TreeNode right;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode(Object nodeValue) {
 	this.nodeValue = nodeValue;
