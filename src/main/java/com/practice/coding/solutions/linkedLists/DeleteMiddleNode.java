@@ -1,7 +1,5 @@
 package com.practice.coding.solutions.linkedLists;
 
-import com.practice.coding.solutions.dataStructures.SinglyLinkedListNode;
-
 /**
  * Cracking the coding interview 2.3
  * 

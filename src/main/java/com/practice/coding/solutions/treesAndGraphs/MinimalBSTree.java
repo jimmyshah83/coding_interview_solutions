@@ -1,4 +1,4 @@
-package com.practice.coding.solutions.arrays.treesAndGraphs;
+package com.practice.coding.solutions.treesAndGraphs;
 
 import com.practice.coding.solutions.dataStructures.TreeNode;
 

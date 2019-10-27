@@ -1,6 +1,6 @@
 package com.practice.coding.solutions.dataStructures;
 
-import com.practice.coding.solutions.arrays.treesAndGraphs.MinimalBSTree;
+import com.practice.coding.solutions.treesAndGraphs.MinimalBSTree;
 
 /**
  * Sample implementation for Binary Search tree with nodes and IN-Order,
