@@ -28,15 +28,18 @@ public class CheckBalanced {
     private static int balancedHeight(TreeNode n) {
 	if (n == null)
 	    return 0;
-	int h1 = balancedHeight(n.left);
-	int h2 = balancedHeight(n.right);
+//	Recursively get the left subtree height of every node
+	int leftH = balancedHeight(n.left);
+//	Recursively get the right subtree height of every node
+	int rightH = balancedHeight(n.right);
 
-	if (h1 == -1 || h2 == -1)
+//	If at any point the subtree length is > 1 then it is not balanced
+	if (Math.abs(leftH - rightH) > 1)
 	    return -1;
-	if (Math.abs(h1 - h2) > 1)
-	    return -1;
-	if (h1 > h2)
-	    return h1 + 1;
-	return h2 + 1;
+	
+//	Return the subtree height that is greater than the other
+	if (leftH > rightH)
+	    return leftH + 1;
+	return rightH + 1;
     }
 }
