@@ -9,6 +9,7 @@ import java.util.Queue;
 
 /**
  * Adjacency list implementation of a Graph using LinkedList
+ * BFS Time complexity O (V + E)
  */
 @SuppressWarnings({ "unchecked", "unused" })
 class Graph {

@@ -1,4 +1,4 @@
-package com.practice.coding.solutions.arrays;
+package com.practice.coding.solutions.treesAndGraphs;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
