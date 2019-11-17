@@ -1,12 +1,11 @@
 package com.practice.coding.solutions.dataStructures;
 
 /**
- * A TreeNode which could be used to implement Binary Tree or Binary Search
- * Tree.
+ * A TreeNode which is used to implement Binary Tree
  */
 public class TreeNode {
 
-    private final Object nodeValue;
+    public Object nodeValue;
     public TreeNode left;
     public TreeNode right;
 

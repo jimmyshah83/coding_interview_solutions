@@ -12,21 +12,11 @@ import com.practice.coding.solutions.dataStructures.TreeNode;
  *
  */
 public class CheckSubTreeOfAnotherTree {
-
-    public static void main(String[] args) {
-	int[] sInt = new int[] {1,2,3,4,5};    
-	TreeNode s = MinimalBSTree.buildMinimalTree(sInt, 0, sInt.length-1);
-	
-	int[] tInt = new int[] {1,2,4};    
-	TreeNode t = MinimalBSTree.buildMinimalTree(tInt, 0, tInt.length-1);
-
-	System.out.println(inOrderTraversal(s, new StringBuffer()).contains(inOrderTraversal(t, new StringBuffer())));
-    }
     
     /**
      * Approach: InOrder-Traverse the tree to get all the elements and then check if t is subStirng of t
      */
-    private static String inOrderTraversal(TreeNode node, StringBuffer inOrder) {
+    public static String inOrderTraversal(TreeNode node, StringBuffer inOrder) {
 	if (node != null) {
 	    inOrderTraversal(node.left,inOrder);
 	    inOrder.append(node.getNodeValue());

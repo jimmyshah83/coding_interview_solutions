@@ -9,6 +9,7 @@ public class Trie {
 	final char value;
 
 	public TrieNode(char value) {
+	    isEnd = false;
 	    this.value = value;
 	    this.arr = new TrieNode[26];
 	}
@@ -20,27 +21,33 @@ public class Trie {
 	root = new TrieNode(' ');
     }
 
+    /*
+     * O(n): Where n is the length of the String
+     */
     public void insert(String word) {
-	TrieNode p = root;
+	TrieNode node = root;
 	for (int i = 0; i < word.length(); i++) {
 	    char c = word.charAt(i);
 //	    Identify the index location for the character
 	    int index = c - 'a';
-	    if (p.arr[index] == null) {
+	    if (node.arr[index] == null) {
 //	   	Create a new node since there is none at the index location
 		TrieNode temp = new TrieNode(c);
 //	    	add the new node at the index location
-		p.arr[index] = temp;
+		node.arr[index] = temp;
 //		Make p, this temp node, to add the next character in the words
-		p = temp;
+		node = temp;
 	    } else {
 //		If node / char already exists, make that node the root node to process next character
-		p = p.arr[index];
+		node = node.arr[index];
 	    }
 	}
-	p.isEnd = true;
+	node.isEnd = true;
     }
 
+    /*
+     * O(n): Where n is the length of the String
+     */
     public boolean search(String word) {
 	TrieNode p = root;
 	for (int i = 0; i < word.length(); i++) {
