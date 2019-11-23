@@ -1,4 +1,4 @@
-package com.practice.coding.solutions.strings;
+package com.practice.coding.solutions.algorithms;
 
 /**
  * Dynamic programming approach:
