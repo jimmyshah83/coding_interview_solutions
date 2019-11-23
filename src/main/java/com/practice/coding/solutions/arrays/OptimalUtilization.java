@@ -21,33 +21,35 @@ package com.practice.coding.solutions.arrays;
  */
 public class OptimalUtilization {
 
-	public static void main(String[] args) {
-		int[][] a = { { 1, 2 }, { 2, 4 }, { 3, 6 } };
-		int[][] b = { { 1, 2 } };
-		getPair(a, b, 7);
-	}
+    public static void main(String[] args) {
+	int[][] a = { { 1, 2 }, { 2, 4 }, { 3, 6 } };
+	int[][] b = { { 1, 2 } };
+	getPair(a, b, 7);
+    }
 
-	/**
-	 * Approach: For each value in a, calculate the difference in b to get the best result
-	 * Time complexity: O(n*m^2)
-	 */
-	public static int[][] getPair(int[][] a, int[][] b, int sum) {
-		int[][] closestSum = {{0,0}};
-		int diff = Integer.MAX_VALUE;
-		for (int row = 0; row < a.length; row++) {
-			for (int col = 1; col < a[row].length; col++) {
-				for (int rowB = 0; rowB < b.length; rowB++) {
-					for (int colB = 1; colB < b[rowB].length; colB++) {
-						int s = a[row][col] + b[rowB][colB];
-						if (s < sum && sum - s < diff) {
-							diff = sum - s;
-							closestSum[0][0] = a[row][col-1];
-							closestSum[0][1] = b[rowB][colB-1];
-						}
-					}
-				}
+    /**
+     * Approach: Brute Force
+     * For each value in a, calculate the difference in b to get the best
+     * result 
+     * Time complexity: O(n*m^2)
+     */
+    public static int[][] getPair(int[][] a, int[][] b, int sum) {
+	int[][] closestSum = { { 0, 0 } };
+	int diff = Integer.MAX_VALUE;
+	for (int row = 0; row < a.length; row++) {
+	    for (int col = 1; col < a[row].length; col++) {
+		for (int rowB = 0; rowB < b.length; rowB++) {
+		    for (int colB = 1; colB < b[rowB].length; colB++) {
+			int s = a[row][col] + b[rowB][colB];
+			if (s < sum && sum - s < diff) {
+			    diff = sum - s;
+			    closestSum[0][0] = a[row][col - 1];
+			    closestSum[0][1] = b[rowB][colB - 1];
 			}
+		    }
 		}
-		return closestSum;
+	    }
 	}
+	return closestSum;
+    }
 }

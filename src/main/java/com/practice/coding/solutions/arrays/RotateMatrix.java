@@ -16,24 +16,24 @@ public class RotateMatrix {
     // by 90 degrees in clockwise direction
     static void rotateMatrixClockwise(int N, int mat[][]) {
 	// Consider all squares one by one
-	for (int x = 0; x < N / 2; x++) {
+	for (int r = 0; r < N / 2; r++) {
 	    // Consider elements in group of 4 in
 	    // current square
-	    for (int y = x; y < N - x - 1; y++) {
+	    for (int c = r; c < N - r - 1; c++) {
 		// store current cell in temp variable
-		int temp = mat[x][y];
+		int temp = mat[r][c];
 
 		// move values from left to bottom
-		mat[x][y] = mat[N - 1 - y][x];
+		mat[r][c] = mat[N - 1 - c][r];
 
 		// move values from bottom to right
-		mat[N - 1 - y][x] = mat[N - 1 - x][N - 1 - y];
+		mat[N - 1 - c][r] = mat[N - 1 - r][N - 1 - c];
 
 		// move values from right to top
-		mat[N - 1 - x][N - 1 - y] = mat[y][N - 1 - x];
+		mat[N - 1 - r][N - 1 - c] = mat[c][N - 1 - r];
 
 		// assign temp to left
-		mat[y][N - 1 - x] = temp;
+		mat[c][N - 1 - r] = temp;
 	    }
 	}
     }

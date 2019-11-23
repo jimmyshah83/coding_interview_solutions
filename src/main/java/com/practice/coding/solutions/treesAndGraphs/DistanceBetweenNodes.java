@@ -3,11 +3,14 @@ package com.practice.coding.solutions.treesAndGraphs;
 /**
  * https://www.geeksforgeeks.org/shortest-distance-between-two-nodes-in-bst/
  * 
- * In the case of BST, we can find the distance faster. We start from the root and for every node, we do following.
-
-If both keys are greater than the current node, we move to the right child of the current node.
-If both keys are smaller than current node, we move to left child of current node.
-If one keys is smaller and other key is greater, current node is Lowest Common Ancestor (LCA) of two nodes. We find distances of current node from two keys and return sum of the distances.
+ * In the case of BST, we can find the distance faster. We start from the root
+ * and for every node, we do following.
+ * 
+ * If both keys are greater than the current node, we move to the right child of
+ * the current node. If both keys are smaller than current node, we move to left
+ * child of current node. If one keys is smaller and other key is greater,
+ * current node is Lowest Common Ancestor (LCA) of two nodes. We find distances
+ * of current node from two keys and return sum of the distances.
  */
 public class DistanceBetweenNodes {
 
