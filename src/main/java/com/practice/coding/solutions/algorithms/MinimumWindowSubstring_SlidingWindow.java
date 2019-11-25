@@ -8,51 +8,60 @@ import java.util.Map;
  * minimum window in S which will contain all the characters in T in complexity
  * O(n).
  * 
- * Input: S = "ADOBECODEBANC", T = "ABC"
- * Output: "BANC"
+ * Input: S = "ADOBECODEBANC", T = "ABCD" Output: "ADOBEC"
  *
  */
 public class MinimumWindowSubstring_SlidingWindow {
 
     public static void main(String[] args) {
 	String s = "ADOBECODEBANC";
-	String t = "ABC";
+	String t = "ABCD";
 	System.out.println(getMinWindow(s, t));
     }
 
     private static String getMinWindow(String s, String t) {
-	Map<Character, Integer> tCount = new HashMap<Character, Integer>();
-	for (char c : t.toCharArray())
-	    tCount.put(c, tCount.getOrDefault(c, 0) + 1);
-	int beginIndex = 0;
-	int endIndex = 0;
-	int counter = tCount.size();
-	int windowLen = Integer.MAX_VALUE;
-	String answer = "";
-	char[] charS = s.toCharArray();
-	while (endIndex<s.length()) {
-	    char c = charS[endIndex];
-	    if (tCount.containsKey(c) && tCount.get(c) != 0) {
-		tCount.put(c, tCount.get(c) - 1);
-		if (tCount.get(c) == 0)
-		    counter--;
-	    }
-	    endIndex++;
-	    while (counter == 0) {
-		if (endIndex - beginIndex < windowLen) {
-		    windowLen = endIndex - beginIndex;
-		    answer = s.substring(beginIndex, endIndex - beginIndex);
-		}
+	if (s.length() == 0 || t.length() == 0)
+	    return "";
 
-		char startchar = charS[beginIndex];
-		if (tCount.containsKey(startchar)) {
-		    tCount.put(startchar, tCount.get(startchar) + 1);
-		    if (tCount.get(startchar) > 0)
-			counter++;
-		}
-		beginIndex++;
+//	Build a map of all the characters and its count in t
+	Map<Character, Integer> tCharCounts = new HashMap<Character, Integer>();
+	for (char c : t.toCharArray())
+	    tCharCounts.put(c, tCharCounts.getOrDefault(c, 0) + 1);
+
+//	Initialize variables. 
+	int left = 0, right = 0, windowSize = Integer.MAX_VALUE;
+	String answer = "";
+	
+//	Found would be used to keep track of all the found characters in s that are in t
+	int found = tCharCounts.size();
+	
+	while (right < s.length()) {
+	    
+//	    Increase window size from right
+	    char c = s.charAt(right);
+	    if (tCharCounts.containsKey(c) && tCharCounts.get(c) > 0) {
+		found--;
+		tCharCounts.put(c, tCharCounts.get(c)-1);
 	    }
+	    
+//	    Shrink from the left
+	    while (found == 0) {
+		
+		if (windowSize > right-left+1) {
+		    windowSize = right-left+1;
+		    answer = s.substring(left, right+1);
+		}
+		
+		char c1 = s.charAt(left);
+		if (tCharCounts.containsKey(c1)) {
+		    found++;
+		    tCharCounts.put(c1, tCharCounts.get(c1)+1);
+		}
+		left++;
+	    }
+	    right++;
 	}
+	
 	return answer;
     }
 }
