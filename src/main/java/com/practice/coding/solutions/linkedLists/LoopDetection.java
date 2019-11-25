@@ -3,12 +3,14 @@ package com.practice.coding.solutions.linkedLists;
 import com.practice.coding.solutions.dataStructures.SinglyLinkedListNode;
 
 /**
- * Cracking the coding interview 2.8 Loop Detection: Given a circular linked
- * list, implement an algorithm that returns the node at the beginning of the
- * loop. DEFINITION Circular linked list: A (corrupt) linked list in which a
- * node's next pointer points to an earlier node, so as to make a loop in the
- * linked list. EXAMPLE Input: 1 -> 2 -> 3 -> 4 -> 5 -> 3 [the same C as
- * earlier] Output: C
+ * Cracking the coding interview 2.8
+ * Loop Detection: Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.
+ * DEFINITION 
+ * Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, 
+ * so as to make a loop in the linked list. 
+ * EXAMPLE 
+ * Input: 1 -> 2 -> 3 -> 4 -> 5 -> 3 [the same C as earlier] 
+ * Output: C
  */
 public class LoopDetection {
 

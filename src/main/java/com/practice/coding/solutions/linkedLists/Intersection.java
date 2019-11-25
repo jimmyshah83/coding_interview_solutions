@@ -12,38 +12,40 @@ import com.practice.coding.solutions.dataStructures.SinglyLinkedListNode;
  */
 public class Intersection {
 
-	public static void main(String[] args) {
-		SinglyLinkedListNode<Integer> node1 = new SinglyLinkedListNode<Integer>(5);
-		SinglyLinkedListNode<Integer> nine = new SinglyLinkedListNode<Integer>(9);
-		
-		SinglyLinkedListNode<Integer> node2 = new SinglyLinkedListNode<Integer>(4);
-		SinglyLinkedListNode<Integer> six = new SinglyLinkedListNode<Integer>(6);
-		
-		SinglyLinkedListNode<Integer> seven = new SinglyLinkedListNode<Integer>(7);
-		SinglyLinkedListNode<Integer> two = new SinglyLinkedListNode<Integer>(2);
-		
-		node1.next = nine;
-		node2.next = six;
-		nine.next = seven;
-		six.next = seven;
-		
-		seven.next = two;
-		
-		System.out.println(findIntersection(node1, node2));	
+    public static void main(String[] args) {
+	SinglyLinkedListNode<Integer> node1 = new SinglyLinkedListNode<Integer>(5);
+	SinglyLinkedListNode<Integer> nine = new SinglyLinkedListNode<Integer>(9);
+
+	SinglyLinkedListNode<Integer> node2 = new SinglyLinkedListNode<Integer>(4);
+	SinglyLinkedListNode<Integer> six = new SinglyLinkedListNode<Integer>(6);
+
+	SinglyLinkedListNode<Integer> seven = new SinglyLinkedListNode<Integer>(7);
+	SinglyLinkedListNode<Integer> two = new SinglyLinkedListNode<Integer>(2);
+
+	node1.next = nine;
+	node2.next = six;
+	nine.next = seven;
+	six.next = seven;
+
+	seven.next = two;
+
+	System.out.println(findIntersection(node1, node2));
+    }
+
+    /**
+     * A naive O(n * m^2) implementation to do instance comparison for every node in
+     * 1 vs 2
+     */
+    private static SinglyLinkedListNode<Integer> findIntersection(SinglyLinkedListNode<Integer> node1, SinglyLinkedListNode<Integer> node2) {
+	while (node1 != null) {
+	    SinglyLinkedListNode<Integer> temp = node2;
+	    while (temp != null) {
+		if (node1 == temp)
+		    return node1;
+		temp = temp.next;
+	    }
+	    node1 = node1.next;
 	}
-	/**
-	 * A naive O(n * m^2) implementation to do instance comparison for every node in 1 vs 2
-	 */
-	private static SinglyLinkedListNode<Integer> findIntersection(SinglyLinkedListNode<Integer> node1, SinglyLinkedListNode<Integer> node2) {
-		while (node1 != null) {		
-			SinglyLinkedListNode<Integer> temp = node2;
-			while (temp != null) {
-				if (node1 == temp) 
-					return node1;
-				temp = temp.next;
-			}
-			node1 = node1.next;
-		}
-		return null;
-	}
+	return null;
+    }
 }
