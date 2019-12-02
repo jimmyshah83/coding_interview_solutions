@@ -33,19 +33,19 @@ public class MinimumWindowSubstring_SlidingWindow {
 	String answer = "";
 	
 //	Found would be used to keep track of all the found characters in s that are in t
-	int found = tCharCounts.size();
+	int found = 0;
 	
 	while (right < s.length()) {
 	    
 //	    Increase window size from right
 	    char c = s.charAt(right);
 	    if (tCharCounts.containsKey(c) && tCharCounts.get(c) > 0) {
-		found--;
+		found++;
 		tCharCounts.put(c, tCharCounts.get(c)-1);
 	    }
 	    
 //	    Shrink from the left
-	    while (found == 0) {
+	    while (found == tCharCounts.size()) {
 		
 		if (windowSize > right-left+1) {
 		    windowSize = right-left+1;
@@ -54,7 +54,7 @@ public class MinimumWindowSubstring_SlidingWindow {
 		
 		char c1 = s.charAt(left);
 		if (tCharCounts.containsKey(c1)) {
-		    found++;
+		    found--;
 		    tCharCounts.put(c1, tCharCounts.get(c1)+1);
 		}
 		left++;
