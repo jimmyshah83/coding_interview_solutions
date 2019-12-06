@@ -17,18 +17,18 @@ public class TwoSum {
     private static final Map<Integer, Integer> matchMap = new HashMap<Integer, Integer>();
 
     public static void main(String[] args) {
-	int[] nums = new int[] { 2, 7, 11, 15 };
-	int target = 9;
-	System.out.println(twoSum(nums, target).toString());
+	int[] nums = new int[] { 7, 2, 11, 15 };
+	twoSum(nums, 9);
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    public static void twoSum(int[] nums, int target) {
 	for (int i = 0; i < nums.length; i++) {
 	    int complement = target - nums[i];
-	    if (matchMap.containsKey(complement))
-		return new int[] { matchMap.get(complement), i };
+	    if (matchMap.containsKey(complement)) {
+		System.out.print(matchMap.get(complement) + " " + i );
+		return;
+	    }
 	    matchMap.put(nums[i], i);
 	}
-	return null;
     }
 }
