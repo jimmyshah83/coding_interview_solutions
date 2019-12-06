@@ -48,4 +48,10 @@ public class Intersection {
 	}
 	return null;
     }
+    
+    /**
+     * Approach 2: O(m + n)
+     * Use a hash set to add all elements from 1 to the set
+     * Traverse through the set to check if element B contains in the set, that is the intersection.
+     */
 }
