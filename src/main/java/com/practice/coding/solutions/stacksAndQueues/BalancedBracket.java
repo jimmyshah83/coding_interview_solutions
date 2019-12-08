@@ -25,13 +25,9 @@ public class BalancedBracket {
     }
 
     public static void main(String[] args) {
-
 	for (char c : BRACKET.toCharArray()) {
-
-	    if (BRACKET_PAIRS.containsKey(c)) {
+	    if (BRACKET_PAIRS.containsKey(c))
 		S.push(c);
-	    }
-
 	    else {
 		char topStackVal = S.pop();
 		if (BRACKET_PAIRS.get(topStackVal) != c) {

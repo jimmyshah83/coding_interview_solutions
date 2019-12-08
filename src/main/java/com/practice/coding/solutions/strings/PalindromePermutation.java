@@ -11,7 +11,7 @@ import java.util.Map.Entry;
  * palindrome. A palindrome is a word or phrase that is the same forwards and
  * backwards, A permutation is a rearrangement of letters. The palindrome does
  * not need to be limited to just dictionary words. EXAMPLE Input: Tact Coa
- * Output: True (permutations: " t a co c a t " " a t c o eta" etc.)
+ * Output: True (permutations: " taco cat " " atc oeta" etc.)
  * 
  * @author jishah
  *

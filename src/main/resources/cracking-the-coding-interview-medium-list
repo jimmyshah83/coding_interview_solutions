@@ -1,0 +1,15 @@
+Moderate interview questions - Cracking the coding interview:
+
+Slope = (y2 - y1) / (x2 - x1)
+16.1 - Number Swapper (Write a function to swap a number in place)
+16.2 - Word Frequencies (Design a method to find the frequency of occurrences of any given word in a book. What if we were running this algorithm multiple times?)
+16.4 - Tic Tac Win (Design an algorithm to figure out if someone has won a game of tic-tac-toe)
+16.6 - Smallest Difference (Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference)
+16.10 - Living People: )Given a list of people with their birth and death years, implement a method to compute the year with the most number of people alive. You may assume that all people were born 
+        between 1900 and 2000 (inclusive). If a person was alive during any portion of that year, they should be included in that year's count. For example, Person (birth = 1908, death = 1909) is included in the
+        counts for both 1908 and 1909.)
+16.16 - Sub Sort (Given an array of integers, write a method to find indices m and n such that if you sorted elements m through n, the entire array would be sorted. Minimize n - m (that is, find the smallest 
+                such sequence))
+16.17 - Contiguous Sequence (You are given an array of integers (both positive and negative). Find the contiguous sequence with the largest sum. Return the sum.) 
+16.21 - Sum Swap (Given two arrays of integers, find a pair of values (one value from each array) that you can swap to give the two arrays the same sum.)
+16.24 - Pairs with Sum (Design an algorithm to find all pairs of integers within an array which sum to a specified value.)

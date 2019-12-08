@@ -19,7 +19,7 @@ public class AdjacentCells {
     }
 
     /**
-     * Approach: For each day, do a deep copy of the current states and compare each
+     * Approach: For each day, do a copy of the current states and compare each
      * one with the previous and next
      */
     public static List<Integer> cellCompete(int[] states, int days) {
@@ -28,7 +28,6 @@ public class AdjacentCells {
 	    int prevState = 0;
 	    int nextState = 0;
 	    int[] temp = new int[states.length];
-	    System.arraycopy(states, 0, temp, 0, states.length);
 	    for (int j = 0; j < states.length; j++) {
 		if (j != 0)
 		    prevState = states[j - 1];

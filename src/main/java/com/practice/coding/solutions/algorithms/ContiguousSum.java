@@ -3,7 +3,7 @@ package com.practice.coding.solutions.algorithms;
 /*
  * Cracking the coding interview 16.17
  */
-public class ContiguousSum_SlidingWindow {
+public class ContiguousSum {
 
     public static void main(String[] args) {
 	System.out.println(findContiguousSum(new int[] { 2, -8, 3, -2, 4, -16 }));
