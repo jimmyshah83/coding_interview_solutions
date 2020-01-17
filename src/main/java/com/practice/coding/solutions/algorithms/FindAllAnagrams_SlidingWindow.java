@@ -8,7 +8,7 @@ import java.util.Map;
 public class FindAllAnagrams_SlidingWindow {
 
     public static void main(String[] args) {
-	//List<Integer> result = findAnagrams("cbaebabacd", "abc");
+	// List<Integer> result = findAnagrams("cbaebabacd", "abc");
 	List<Integer> result = findAnagrams("abaacbabc", "abc");
 	for (int i : result)
 	    System.out.print(i + ",");
@@ -27,7 +27,7 @@ public class FindAllAnagrams_SlidingWindow {
 
 	int left = 0, right = 0, windowSize = t.length(), found = 0;
 	Map<Character, Integer> windowCharCounts = new HashMap<Character, Integer>();
-	
+
 	while (right < s.length()) {
 	    char c = s.charAt(right);
 	    if (tWordCount.containsKey(c)) {
@@ -35,11 +35,11 @@ public class FindAllAnagrams_SlidingWindow {
 		windowCharCounts.put(c, windowCharCounts.getOrDefault(c, 0) + 1);
 	    }
 //	    Shrink left
-	    if (windowSize == right-left+1) {
+	    if (windowSize == right - left + 1) {
 //		add the result
-		if (found == windowSize && tWordCount.equals(windowCharCounts)) 
+		if (found == windowSize && tWordCount.equals(windowCharCounts))
 		    result.add(left);
-		
+
 		char c1 = s.charAt(left);
 		if (windowCharCounts.containsKey(c1) && windowCharCounts.get(c1) > 0) {
 		    found--;
